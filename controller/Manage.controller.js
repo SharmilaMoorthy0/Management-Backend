@@ -138,6 +138,19 @@ const Employelogin = async (req, res) => {
       console.log("manage.controller.js/Employelogin-->error", error)
    }
 }
+const EmployeSearch=async(req,res)=>{
+   try {
+       const { query } = req.body;
+       const results = await Manage.find({
+           $or: [
+             { FirstName: { $regex: query, $options: 'i' } }, // Case-insensitive search on productName
+           //   { description: { $regex: query, $options: 'i' } } // Case-insensitive search on description
+           ]
+         });
+         res.json({ status: 1,response: results });
+       } catch (error) {
+          console.log("manage.controller.js/EmployeSearch-->error", error)
 
-
-module.exports = { newEmploye, DeleteEmploye, editEmploye, allEmployeForAdmin, Employelogin, allEmploye }
+     }
+   }
+module.exports = { newEmploye, DeleteEmploye, editEmploye, allEmployeForAdmin, Employelogin, allEmploye ,EmployeSearch}
