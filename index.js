@@ -27,7 +27,7 @@ app.use('/',StatusRoutes)
 
 
 
-const URI = "mongodb+srv://sharmilamoorthy:sharmilamoorthy@cluster0.qqbwzvc.mongodb.net/"
+const URI = "mongodb+srv://sharmilamoorthy:sharmila2025@cluster0.qqbwzvc.mongodb.net/"
 mongoose.connect(URI).then(() => {
     app.listen(PORT, () => {
         console.log(`server is running in ${PORT}`)
